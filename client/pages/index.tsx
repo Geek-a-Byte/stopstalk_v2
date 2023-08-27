@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function index() {
+function Index() {
   const [total, setTotal] = useState([]);
   const [profile, setProfile] = useState([]);
 
@@ -56,4 +56,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;
