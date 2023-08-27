@@ -56,11 +56,11 @@ p {
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 40px;
 }
 
 .description {
-    font-size: 20px;
+    font-size: 15px;
     color: var(--accents-5);
     margin-top: 10px;
     text-align: center;
@@ -132,7 +132,7 @@ body a:focus-visible {
     text-decoration: none;
     margin-top:15px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 

@@ -15,7 +15,7 @@ function Index() {
 
   const solveStyle = {
     fontWeight: 'bold',
-    fontSize: '18px'
+    fontSize: '16px'
   };
 
   return (
