@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@600&family=Noto+Sans+Bengali:wght@300&display=swap');
+
+#title{
+    font-family: 'Lexend', sans-serif;
+    font-size: 35px;
+    color:rgb(56, 106, 163);
+    background-color:rgb(224, 235, 238);
+}
+#username {
+    font-family: 'Lexend', sans-serif;
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+}
+:root {
+    --color-primary: #192023;
+    --color-dark: #0e0e0e;
+    --color-light: rgb(252, 252, 252);
+    --color-shade: #e4e2e2;
+
+    --badge-size: 180px;
+
+    --lock-color: #fff;
+    --lock-width: 100px;
+    --lock-stroke: 2.5px;
+
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+   
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 1px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+        /* center the grid container horizontally */
+}
+
+.badge-icon,
+.badge-text,
+.badge-icon {
+    padding: 1rem;
+    float: left;
+    -webkit-box-flex: 1;
+    flex: 1;
+    
+}
+
+.badge {
+    width: 30%; /* set the width of each div to 30% of the parent container */
+    display: flex;
+    margin-bottom: 1.5rem;
+    margin-right: 1.5rem;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.138), 0 5px 5px #9393ee;
+    background: var(--color-light);
+    
+    min-width: var(--badge-size);
+    border-radius: 5px;
+    /* box-shadow: 0px 0px 10px var(--color-shade); */
+
+    overflow: hidden;
+}
+
+.badge-icon {
+    background:  url("./cses.png") rgb(6, 26, 49) no-repeat center center;
+    background-size:contain;
+    background-origin: padding-box;
+    padding-left: 15%;
+    max-width: calc(var(--badge-size)/5);
+    /* max-width: calc(var(--badge-size) / 0.2); */
+}
+
+.badge-text {
+    font-family: 'Lexend', sans-serif;
+    font-size: 15px;
+    
+    /* font: normal small-caps normal 16px/1.5 Arial, Helvetica, sans-serif; */
+    text-transform: uppercase;
+    line-height: 1;
+    text-align: left;
+}
+
+.badge[data-color=""]
+.badge[data-color="default"] .badge-text {
+    color: var(--color-light);
+    background-color: var(--color-primary);
+}
+
+.badge[data-color="light"]{
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+.badge[data-color="dark"] {
+    color: var(--color-light);
+    background-color: var(--color-dark);
+}
+
+
+.badge-text{
+    color: rgb(255, 255, 255);
+    background-color: rgb(57, 53, 53);
+}
+
