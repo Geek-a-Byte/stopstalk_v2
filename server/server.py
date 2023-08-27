@@ -3,57 +3,25 @@ from flask_cors import CORS
 import scrapers
 from scrapers import cses, codeforces, hackerrank, leetcode, lightoj, spoj, timus, uva, toph, codechef, atcoder,vjudge
 
-
-oj_index=[1,2,3,4,5,6,7,8,9,10,11,12]
-oj = ['cses', 'loj', 'leetcode','hackerrank','toph', 'spoj','uva','timus','codechef','atcoder', 'vjudge']
-solved = [
-            int(cses.cses),
-            int(lightoj.loj), 
-            int(leetcode.leetcode), 
-            int(hackerrank.total_count), 
-            int(codeforces.cf), 
-            int(toph.toph),
-            int(spoj.spoj),
-            int(uva.uva),
-            int(timus.number),
-            int(codechef.number),
-            int(atcoder.number),
-            int(vjudge.number2),
-        ]
-
-usernames =[cses.cses_username, 
-            lightoj.loj_username, 
-            leetcode.lc_user, 
-            hackerrank.payload['username'], 
-            codeforces.user,
-            toph.username,
-            spoj.username,
-            uva.username,
-            timus.id,
-            codechef.username,
-            atcoder.username,
-            vjudge.username_2
-            ]
-urls = [cses.cses_url, 
-        lightoj.loj_url, 
-        'https://leetcode.com/'+leetcode.lc_user,
-        'https://www.hackerrank.com/'+hackerrank.payload['username'],
-        'https://codeforces.com/profile/'+codeforces.user,
-        'https://toph.co/u/'+toph.username,
-        'https://www.spoj.com/users/'+spoj.username,
-        uva.profile_url,
-        timus.url, 
-        codechef.url,
-        atcoder.profile_url,
-        'https://vjudge.net/user/'+vjudge.username_2
-        ]
+links = [
+    {'oj':'cses','text': cses.cses_username, 'url': cses.cses_url, 'solve_count': int(cses.cses)},
+    {'oj':'lightoj','text': lightoj.loj_username, 'url': lightoj.loj_url, 'solve_count':  int(lightoj.loj)},
+    {'oj':'leetcode','text': leetcode.lc_user, 'url': 'https://leetcode.com/'+leetcode.lc_user, 'solve_count': int(leetcode.leetcode)},
+    {'oj':'hackerrank','text':  hackerrank.payload['username'], 'url': 'https://www.hackerrank.com/'+hackerrank.payload['username'], 'solve_count': int(hackerrank.total_count)},
+    {'oj':'codeforces','text': codeforces.user, 'url': 'https://codeforces.com/profile/'+codeforces.user, 'solve_count':   int(codeforces.cf)},
+    {'oj':'toph','text': toph.username, 'url': 'https://toph.co/u/'+toph.username, 'solve_count': int(toph.toph)},
+    {'oj':'spoj','text': spoj.username, 'url': 'https://www.spoj.com/users/'+spoj.username, 'solve_count': int(spoj.spoj)},
+    {'oj':'uva','text': uva.username, 'url': uva.profile_url, 'solve_count':  int(uva.uva)},
+    {'oj':'timus','text': timus.id, 'url': timus.url, 'solve_count': int(timus.number)},
+    {'oj':'codechef','text':  codechef.username, 'url': codechef.url, 'solve_count': int(codechef.number)},
+    {'oj':'atcoder','text': atcoder.username, 'url': atcoder.profile_url, 'solve_count':  int(atcoder.number)},
+    {'oj':'vjudge','text': vjudge.username_2, 'url': 'https://vjudge.net/user/'+vjudge.username_2, 'solve_count': int(vjudge.number2)}
+]
 
 tot_all=0
-for i in solved:
-    tot_all+=int(i)
+for i in links:
+    tot_all+=int(i['solve_count'])
 
-zipped_res=zip(oj_index, oj, solved, usernames,urls)  
-sorted_res=sorted(zipped_res, key = lambda x: x[2],  reverse=True)
 
 # app instance
 app = Flask(__name__)
@@ -63,10 +31,8 @@ CORS(app)
 @app.route("/api/home", methods=['GET'])
 def return_home():
     return jsonify({
-        'message': "Bravo! you solved",
-        'solved': solved,
-        'username': usernames,
-        'profile': urls,
+        'total_solved': tot_all,
+        'profile': links,
     })
 
 
