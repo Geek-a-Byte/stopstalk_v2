@@ -5,7 +5,7 @@ function Index() {
   const [profile, setProfile] = useState([]);
 
   useEffect(() => {
-    fetch("http://172.17.0.4:5000/api/home")
+    fetch("https://127.0.0.1:8085/api/home")
       .then((response) => response.json())
       .then((data) => {
         setTotal(data.total_solved);
