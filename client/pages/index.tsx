@@ -1,6 +1,29 @@
 import React, { useEffect, useState } from "react";
+function LoadingComponent() {
+  return (
+    <div>
+      <p style={{ marginTop:'25px',textAlign: 'center', fontWeight: 'bold', fontSize: '16px' }}>Loading...</p>
+      <div>
+      <div className="spinner-box">
+        <div className="blue-orbit leo">
+        </div>
+        <div className="green-orbit leo">
+        </div>
+        <div className="red-orbit leo">
+        </div>
+        <div className="white-orbit w1 leo">
+        </div><div className="white-orbit w2 leo">
+        </div><div className="white-orbit w3 leo">
+        </div>
+      </div>
+      {/* You can add a loading spinner or animation here */}
+      </div>
+    </div>
+  );
+}
 
 function Index() {
+  const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState([]);
   const [profile, setProfile] = useState([]);
 
@@ -10,13 +33,14 @@ function Index() {
       .then((data) => {
         setTotal(data.total_solved);
         setProfile(data.profile);
+        setLoading(false); // Set loading to false when data is fetched
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        setLoading(false);
       });
-  }, []);
 
-  const solveStyle = {
-    fontWeight: 'bold',
-    fontSize: '16px'
-  };
+  }, []);
 
   return (
     <>
@@ -26,7 +50,10 @@ function Index() {
           Tracking solved counts of DSA problems powered by NextJS and Flask
         </p>
         <hr />
-        <p style={solveStyle}>
+        {
+        loading ? (<LoadingComponent />) : (
+        <div>
+        <p style={{ marginTop: '25px',textAlign: 'center', fontWeight: 'bold', fontSize: '16px' }}>
           Total Solved {total}
         </p>
         <div className="gridContainer">
@@ -34,24 +61,21 @@ function Index() {
             <>
             <div className="linkItem">
               <div className="pill">
-              
-            <img className="imgContainer" src={link['oj']+'.png'} alt=""  />
-            <div>
-            <a target="_blank" href={link['url']}>{link['text']}</a>
-            </div>
+              <img className="imgContainer" src={link['oj']+'.png'} alt=""  />
               </div>
-            
+              <div>
+              <a target="_blank" href={link['url']}>{link['text']}</a>
+              </div>
             <div>
               {link['solve_count']}
             </div>
             </div>
-            
             </>
         ))}
         </div>
+        </div>
+        )}
       </main>
-    <div>
-    </div>
     </>
   );
 }
