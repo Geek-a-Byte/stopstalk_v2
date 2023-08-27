@@ -5,7 +5,7 @@ function Index() {
   const [profile, setProfile] = useState([]);
 
   useEffect(() => {
-    fetch("https://127.0.0.1:8085/api/home")
+    fetch("https://stopstalkv2-server.onrender.com/api/home")
       .then((response) => response.json())
       .then((data) => {
         setTotal(data.total_solved);
