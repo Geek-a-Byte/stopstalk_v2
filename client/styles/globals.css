@@ -67,7 +67,7 @@ h1 {
 }
 
 .pill {
-    border-radius: 9999px;
+    border-radius: 5px;
     border: solid 1px var(--accents-2);
     background: var(--accents-2);
     font-weight: 600;

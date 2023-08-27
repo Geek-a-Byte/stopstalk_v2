@@ -33,10 +33,14 @@ function index() {
           {profile.map((link, index) => (
             <>
             <div className="linkItem">
+              <div className="pill">
+              
             <img className="imgContainer" src={link['oj']+'.png'} alt=""  />
             <div>
             <a target="_blank" href={link['url']}>{link['text']}</a>
             </div>
+              </div>
+            
             <div>
               {link['solve_count']}
             </div>
