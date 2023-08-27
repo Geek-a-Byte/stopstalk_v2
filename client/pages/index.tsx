@@ -61,7 +61,10 @@ function Index() {
             <>
             <div className="linkItem">
               <div className="pill">
-              <img className="imgContainer" src={link['oj']+'.png'} alt=""  />
+                <img className="imgContainer" src={link['oj']+'.png'} alt=""  />
+              <div style={{ margin: '2px 0',color:'white',textAlign: 'center', fontWeight: 'bold', fontSize: '18px' }}>
+              {link['oj']}
+              </div>
               </div>
               <div>
               <a target="_blank" href={link['url']}>{link['text']}</a>
