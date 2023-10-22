@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 import scrapers
-from scrapers import cses, codeforces, hackerrank, leetcode, lightoj, spoj, timus, uva, toph, codechef, atcoder,vjudge
+from scrapers import cses, codeforces, hackerrank, leetcode, lightoj, spoj, timus, uva, toph, atcoder,vjudge
 
 links = [
     {'oj':'cses','text': cses.cses_username, 'url': cses.cses_url, 'solve_count': int(cses.cses)},
@@ -13,7 +13,7 @@ links = [
     {'oj':'spoj','text': spoj.username, 'url': 'https://www.spoj.com/users/'+spoj.username, 'solve_count': int(spoj.spoj)},
     {'oj':'uva','text': uva.username, 'url': uva.profile_url, 'solve_count':  int(uva.uva)},
     {'oj':'timus','text': timus.id, 'url': timus.url, 'solve_count': int(timus.number)},
-    {'oj':'codechef','text':  codechef.username, 'url': codechef.url, 'solve_count': int(codechef.number)},
+    # {'oj':'codechef','text':  codechef.username, 'url': codechef.url, 'solve_count': int(codechef.number)},
     {'oj':'atcoder','text': atcoder.username, 'url': atcoder.profile_url, 'solve_count':  int(atcoder.number)},
     {'oj':'vjudge','text': vjudge.username_2, 'url': 'https://vjudge.net/user/'+vjudge.username_2, 'solve_count': int(vjudge.number2)}
 ]
