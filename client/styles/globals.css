@@ -33,7 +33,7 @@ body {
     background: var(--bg);
     color: var(--fg);
     padding: 0 var(--root-padding);
-    background-image: url(/bg-light.png);
+    /* background-image: url(/bg-light.png); */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -100,7 +100,7 @@ h1 {
         --nav-text-active: #fff;
         --nav-pill: radial-gradient(#505050 0%, #292929 100%);
 
-        background-image: url(/bg-dark.png);
+        /* background-image: url(/bg-dark.png); */
     }
 }
 

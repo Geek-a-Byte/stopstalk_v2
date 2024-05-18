@@ -1,10 +1,10 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 import scrapers
-from scrapers import cses, codeforces, hackerrank, leetcode, lightoj, spoj, timus, uva, toph, atcoder,vjudge
+from scrapers import codeforces, hackerrank, leetcode, lightoj, spoj, timus, uva, toph, atcoder,vjudge
 
 links = [
-    {'oj':'cses','text': cses.cses_username, 'url': cses.cses_url, 'solve_count': int(cses.cses)},
+    # {'oj':'cses','text': cses.cses_username, 'url': cses.cses_url, 'solve_count': int(cses.cses)},
     {'oj':'lightoj','text': lightoj.loj_username, 'url': lightoj.loj_url, 'solve_count':  int(lightoj.loj)},
     {'oj':'leetcode','text': leetcode.lc_user, 'url': 'https://leetcode.com/'+leetcode.lc_user, 'solve_count': int(leetcode.leetcode)},
     {'oj':'hackerrank','text':  hackerrank.payload['username'], 'url': 'https://www.hackerrank.com/'+hackerrank.payload['username'], 'solve_count': int(hackerrank.total_count)},

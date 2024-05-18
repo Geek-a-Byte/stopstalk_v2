@@ -3,13 +3,14 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 username = "geekabyte"
-url = f"https://toph.co/u/{username}/"
+url = f"https://toph.co/u/{username}"
 
 # Make a GET request to the user's profile page
 response = requests.get(url)
 
 # Check if the request was successful
 if response.status_code != 200:
+    print(response)
     print("Failed to fetch data from the TOPH API")
     exit()
 

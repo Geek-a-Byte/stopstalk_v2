@@ -23,8 +23,9 @@ def extract_json(dict):
   
   }
   s=requests.session()
-  s.get("https://leetcode.com/")
-  header["x-csrftoken"] = s.cookies["csrftoken"]
+  s.get("https://leetcode.com")
+  # print(s.cookies.get_dict())
+  header["x-csrftoken"] = s.cookies["__cf_bm"]
   r = s.post("https://leetcode.com/graphql",json=data,headers=header)
   return json.loads(r.text)
 
